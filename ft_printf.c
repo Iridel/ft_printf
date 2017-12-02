@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 11:59:00 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 01:50:06 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 02:19:08 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,4 @@ int		ft_printf(char *statement, ...)
 	total = var->total_len;
 	free(var);
 	return(total);
-}
-
-int		main(int ac, char **av)
-{
-	if (ac < 2)
-		return (0);
-	ft_printf(av[1], av[2], av[3]);
 }
