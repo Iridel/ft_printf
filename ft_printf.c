@@ -1,18 +1,18 @@
-/*************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/22 11:59:00 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 20:36:31 by dhill            ###   ########.fr       */
+/*   Created: 2017/12/03 01:32:45 by dhill             #+#    #+#             */
+/*   Updated: 2017/12/03 01:52:52 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int    parse(t_info *var, char *s)
+int		parse(t_info *var, char *s)
 {
 	int count;
 
@@ -25,30 +25,24 @@ int    parse(t_info *var, char *s)
 	return (count);
 }
 
-int     print(t_info *var, char *s)
+int		print(t_info *var, char *s)
 {
-    int i;
-
-    i = 0;
-    while ((s[i] != '\0' && s[i] != '%') || (s[i] == '%' && s[i + 1] == '%'))
-    {
-        if (s[i] == '%' && s[i + 1] == '%')
-            i++;
-        ft_putchar(s[i]);
-        i++;
-    }
+	int i;
+	
+	i = 0;
+	while ((s[i] != '\0' && s[i] != '%') || (s[i] == '%' && s[i + 1] == '%'))
+	{
+		if (s[i] == '%' && s[i + 1] == '%')
+			i++;
+		ft_putchar(s[i]);
+		i++;
+	}
 	var->total_len += i;
-    return (i);
-}  
+	return (i);
+}
 
 int		route(t_info *var, va_list ap)
 {
-	/*
-	var->type == 'c' ? handle_c(var, ap) : 0;
-	var->type == 's' ? handle_s(var, ap) : 0;
-	var->type == 'd' ? handle_d_i(var, ap) : 0;
-	var->type == 'u' ? handle_u_x_o_p(var, ap) : 0;
-	*/
 	if (var->type == 'c')
 		return (handle_c(var, ap));
 	if (var->type == 's')
@@ -83,7 +77,6 @@ int		ft_printf(char *statement, ...)
 		ft_bzero(var, sizeof(t_info));
 	}
 	va_end(ap);
-	//total = var->total_len;
 	free(var);
-	return(total);
+	return (total);
 }
