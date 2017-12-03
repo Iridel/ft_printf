@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 12:05:27 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 00:57:05 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 17:33:55 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct	s_info
 ** handle.c && ft_printf.c
 */
 int		ft_printf(char *string, ...);
-int		handle_c(va_list ap);
+int		handle_c(t_info *var, va_list ap);
 int		handle_s(t_info *var, va_list ap);
 int		handle_d_i(t_info *var, va_list ap);
 int		handle_u_x_o_p(t_info *var, va_list ap);

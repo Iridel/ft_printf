@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 11:59:00 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 02:19:08 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 17:34:26 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int     print(t_info *var, char *s)
 
 void	route(t_info *var, va_list ap)
 {
-	var->type == 'c' ? handle_c(ap) : 0;
+	var->type == 'c' ? handle_c(var, ap) : 0;
 	var->type == 's' ? handle_s(var, ap) : 0;
 	var->type == 'd' ? handle_d_i(var, ap) : 0;
 	var->type == 'u' ? handle_u_x_o_p(var, ap) : 0;

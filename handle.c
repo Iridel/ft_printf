@@ -6,13 +6,13 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 19:11:17 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 17:32:25 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 17:35:14 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		handle_c(va_list ap)
+int		handle_c(t_info *var, va_list ap)
 {
 	char	*str;
 	int		arg;
@@ -26,13 +26,13 @@ int		handle_c(va_list ap)
 	{
 		ft_putstr(padding);
 		ft_putstr(str);
-		if (ft_strequ(arg, "") == 0)
+		if (ft_strequ(str, "") == 0)
 			ft_putchar('\0');
 	}
 	else
 	{
 		ft_putstr(str);
-		if (ft_strequ(arg, "") == 0)
+		if (ft_strequ(str, "") == 0)
 			ft_putchar('\0');
 		ft_putstr(padding);
 	}
