@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 01:32:45 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 01:52:52 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 02:22:11 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int		route(t_info *var, va_list ap)
 		return (handle_d_i(var, ap));
 	if (var->type == 'u')
 		return (handle_u_x_o_p(var, ap));
+	if (var->type == 'C')
+		return (handle_C(var, ap));
 	return (0);
 }
 

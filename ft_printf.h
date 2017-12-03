@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 12:05:27 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 02:07:00 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 02:22:33 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int				handle_c(t_info *var, va_list ap);
 int				handle_s(t_info *var, va_list ap);
 int				handle_d_i(t_info *var, va_list ap);
 int				handle_u_x_o_p(t_info *var, va_list ap);
+int				handle_C(t_info *var, va_list ap);
 
 /*
 ** parsing.c
