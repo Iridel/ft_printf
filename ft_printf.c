@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 11:59:00 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 20:03:39 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 20:36:31 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int    parse(t_info *var, char *s)
 	count += parse_flags(var, s + count);
 	count += parse_width(var, s + count);
 	count += parse_precision(var, s + count);
-	count += skip_length(s + count);
+	count += parse_length(var, s + count);
 	count += parse_type(var, s + count);
 	return (count);
 }

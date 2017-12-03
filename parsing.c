@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 01:15:01 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 02:01:12 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 20:41:40 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,19 @@ int		parse_precision(t_info *var, char *s)
 	return (i);
 }
 
-int		skip_length(char *s)
+int		parse_length(t_info *var, char *s)
 {
 	if ((s[0] == 'h' && s[1] == 'h') || (s[0] == 'l' && s[1] == 'l'))
+	{
+		s[0] == 'l' && s[1] == 'l' ? var->length = ll : 0;
+		s[0] == 'h' && s[1] == 'h' ? var->length = hh : 0;
 		return (2);
+	}
+	s[0] == 'h' ? var->length = h : 0;
+	s[0] = 'l' ? var->length = l : 0;
+	s[0] = 'j' ? var->length = j : 0;
+	s[0] = 't' ? var->length = t : 0;
+	s[0] = 'z' ? var->length = z : 0;
 	if (s[0] == 'h' || s[0] == 'l' || s[0] == 'j' || s[0] == 't' || s[0] == 'z')
 		return (1);
 	return (0);

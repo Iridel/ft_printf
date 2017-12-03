@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 19:11:17 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 19:56:58 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 20:56:22 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int		handle_c(t_info *var, va_list ap)
 	arg = va_arg(ap, int);
 	str = ft_strnew(1);
 	str[0] = (char)arg;
-	//var->total_len++;
 	var->str_len = 1;
 	padding = create_padding(var, str);
 	if (var->fl.neg_f == 0)
@@ -71,13 +70,32 @@ int		handle_s(t_info *var, va_list ap)
 	return (var->total_len);
 }
 
+long long	d_i_help(t_info *var, va_list ap)
+{
+	if (var->length == ll)
+		return (va_arg(ap, long long));
+	if (var->length == l)
+		return ((long long)va_arg(ap, long));
+	if (var->length == hh)
+		return ((long long)va_arg(ap, int));
+	if (var->length == h)
+		return ((long long)va_arg(ap, int));
+	if (var->length == j)
+		return (va_arg(ap, long long));
+	if (var->length == t)
+		return (va_arg(ap, long long));
+	if (var->length == z)
+		return ((long long)va_arg(ap, unsigned long long));
+	return (0);
+}
+
 int		handle_d_i(t_info *var, va_list ap)
 {
 	char		*padding;
 	char		*number;
 	long long	val;
 
-	val = va_arg(ap, long long);
+	val = d_i_help(var, ap);
 	number = create_signed(var, val);
 	padding = create_num_padding(var);
 	if (var->fl.neg_f == 0)
