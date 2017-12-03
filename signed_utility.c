@@ -6,13 +6,13 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:59 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 00:49:39 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 02:55:53 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ll_len(long long n)
+int		ll_len(long long n)
 {
 	long long	i;
 	int			len;
@@ -66,5 +66,4 @@ void	sign_help(t_info *var, long long n, char *padding, char *num)
 		tmp[0] = ' ';
 	else if (var->fl.plus_f == 1)
 		tmp[0] = '+';
-
 }

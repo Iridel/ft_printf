@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 01:32:45 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 02:35:05 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 02:50:22 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		parse(t_info *var, char *s)
 int		print(t_info *var, char *s)
 {
 	int i;
-	
+
 	i = 0;
 	while ((s[i] != '\0' && s[i] != '%') || (s[i] == '%' && s[i + 1] == '%'))
 	{
@@ -44,7 +44,7 @@ int		print(t_info *var, char *s)
 int		route(t_info *var, va_list ap)
 {
 	if (var->type == 'c' && var->length == l)
-		return (handle_C(var, ap));
+		return (handle_lc(var, ap));
 	if (var->type == 'c')
 		return (handle_c(var, ap));
 	if (var->type == 's')

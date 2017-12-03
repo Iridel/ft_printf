@@ -6,13 +6,13 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 19:11:17 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 02:31:02 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 02:54:51 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		handle_c(t_info *var, va_list ap)
+int			handle_c(t_info *var, va_list ap)
 {
 	char	*str;
 	int		arg;
@@ -27,14 +27,12 @@ int		handle_c(t_info *var, va_list ap)
 	{
 		ft_putstr(padding);
 		ft_putstr(str);
-		if (str[0] == '\0')
-			ft_putchar('\0');
+		str[0] == '\0' ? ft_putchar('\0') : 0;
 	}
 	else
 	{
 		ft_putstr(str);
-		if (str[0] == '\0')
-			ft_putchar('\0');
+		str[0] == '\0' ? ft_putchar('\0') : 0;
 		ft_putstr(padding);
 	}
 	free(padding);
@@ -42,16 +40,14 @@ int		handle_c(t_info *var, va_list ap)
 	return (var->total_len);
 }
 
-int		handle_s(t_info *var, va_list ap)
+int			handle_s(t_info *var, va_list ap)
 {
 	char	*str;
 	char	*arg;
 	char	*padding;
 
-	if (var->length == l)
-		arg = convert_wstr(va_arg(ap, wchar_t *));
-	else
-		arg = va_arg(ap, char *);
+	arg = var->length == l ? convert_wstr(va_arg(ap, wchar_t *)) :
+							va_arg(ap, char *);
 	str = create_str(var, arg);
 	padding = create_padding(var, str);
 	if (var->fl.neg_f == 0)
@@ -94,7 +90,7 @@ long long	d_i_help(t_info *var, va_list ap)
 	return (0);
 }
 
-int		handle_d_i(t_info *var, va_list ap)
+int			handle_d_i(t_info *var, va_list ap)
 {
 	char		*padding;
 	char		*number;
@@ -119,7 +115,7 @@ int		handle_d_i(t_info *var, va_list ap)
 	return (var->total_len);
 }
 
-int		handle_u_x_o_p(t_info *var, va_list ap)
+int			handle_u_x_o_p(t_info *var, va_list ap)
 {
 	char		*padding;
 	char		*number;

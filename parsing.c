@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 01:15:01 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 02:25:45 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 03:22:46 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@ int		parse_flags(t_info *var, char *s)
 {
 	int			i;
 	int			ck;
-	const char	flags[256] = {['-'] = 1, ['+'] = 1, [' '] = 1, ['0'] = 1,
-							['#'] = 1};
 
 	i = 1;
 	ck = s[i];
-	while (s[i] != '\0' && flags[ck] == 1)
+	while (s[i] != '\0' && check_flag(s[i]) == 1)
 	{
 		s[i] == '-' ? var->fl.neg_f = 1 && i++ : 0;
 		s[i] == '+' ? var->fl.plus_f = 1 && i++ : 0;
@@ -85,20 +83,13 @@ int		parse_length(t_info *var, char *s)
 
 int		parse_type(t_info *var, char *s)
 {
-	const char	types[256] = {['c'] = 1, ['C'] = 1, ['s'] = 1, ['S'] = 1,
-							['p'] = 1, ['i'] = 1, ['d'] = 1, ['D'] = 1,
-							['o'] = 1, ['O'] = 1, ['u'] = 1, ['U'] = 1,
-							['x'] = 1, ['X'] = 1};
-	int i;
-
-	i = s[0];
-	if (types[i] == 1)
+	if (check_type(s[0]))
 	{
 		s[0] == 'c' || s[0] == 'C' ? var->type = 'c' : 0;
 		s[0] == 's' || s[0] == 'S' ? var->type = 's' : 0;
 		s[0] == 'd' || s[0] == 'D' || s[0] == 'i' ? var->type = 'd' : 0;
 		s[0] == 'u' || s[0] == 'U' || s[0] == 'o' || s[0] == 'O' ||
-			s[0] == 'x' ||  s[0] == 'X' || s[0] == 'p' ? var->type = 'u' : 0;
+			s[0] == 'x' || s[0] == 'X' || s[0] == 'p' ? var->type = 'u' : 0;
 		var->fl.upper_f = ft_isupper(s[0]);
 		var->base = 10;
 		s[0] == 'x' || s[0] == 'X' || s[0] == 'p' ? var->base = 16 : 0;
