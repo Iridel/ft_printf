@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 19:11:17 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 20:56:22 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 21:06:45 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ long long	d_i_help(t_info *var, va_list ap)
 		return (va_arg(ap, long long));
 	if (var->length == z)
 		return ((long long)va_arg(ap, unsigned long long));
+	if (var->length == unset)
+		return ((long long)va_arg(ap, int));
 	return (0);
 }
 

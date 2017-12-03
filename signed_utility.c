@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:59 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 01:00:33 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 21:32:28 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int     ll_len(long long n)
 
 	i = n;
 	len = 0;
+	/*
 	if (!ft_ispositive(n))
 		len++;
+	*/
 	while (i >= 10 || i <= -10)
 	{
 		i = i / 10;
@@ -40,9 +42,15 @@ int		prefix_len(t_info *var, long long num)
 
 char	*itoa_helper(t_info *var, long long n, char *new, int num_len)
 {
+	long long	original;
+
+	original = n;
 	while (n)
 	{
-		new[num_len] = '0' + n % 10;
+		if (n >= 0)
+			new[num_len] = '0' + n % 10;
+		else
+			new[num_len] = '0' - n % 10;
 		n /= 10;
 		num_len--;
 	}
@@ -51,7 +59,7 @@ char	*itoa_helper(t_info *var, long long n, char *new, int num_len)
 		new[num_len] = '0';
 		num_len--;
 	}
-	if (n < 0)
+	if (original < 0)
 		new[0] = '-';
 	else if (var->fl.plus_f == 1)
 		new[0] = '+';
