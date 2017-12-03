@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 02:30:12 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 03:29:36 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 03:30:24 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		handle_lc(t_info *var, va_list ap)
 	int			len;
 
 	ft_bzero(u8, 4);
-	wc = va_arg(ap, wchar_t);
+	wc = va_arg(ap, wint_t);
 	len = convert_wchar(u8, wc);
 	handle_s_indirect(var, u8);
 	return (len);
