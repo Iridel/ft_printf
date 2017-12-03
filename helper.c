@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:08:20 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 02:03:27 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 18:06:52 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,15 @@ char	*create_padding(t_info *var, char *str)
 	char	*new;
 	int		len;
 
-	len = var->fl.width_f ? MAX(ft_strlen(str), var->width) : ft_strlen(str);
+	len = 0;
+	if (var->fl.width_f)
+	{
+		if (var->fl.pre_f)
+			len = var->width - MIN(ft_strlen(str), var->pre);
+		else
+			len = var->width - ft_strlen(str);
+	}
+	len < 0 ? len = 0 : 0;
 	new = ft_strnew(len);
 	var->fl.zero_f ? ft_memset(new, '0', len) : ft_memset(new, ' ', len);
 	var->total_len = len + var->str_len; 
