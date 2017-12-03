@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 12:05:27 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 22:08:53 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 23:55:26 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ char	*create_num_padding(t_info *var);
 int		ll_len(long long n);
 int		prefix_len(t_info *var, long long num);
 char	*itoa_helper(t_info *var, long long n, char *new_s, int num_len);
+void	sign_help(t_info *var, long long n, char *padding, char *num);
 
 /*
 ** unsigned_utility.c

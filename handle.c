@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 19:11:17 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 21:06:45 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 23:54:50 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ int		handle_d_i(t_info *var, va_list ap)
 	val = d_i_help(var, ap);
 	number = create_signed(var, val);
 	padding = create_num_padding(var);
+	sign_help(var, val, padding, number);
 	if (var->fl.neg_f == 0)
 	{
 		ft_putstr(padding);

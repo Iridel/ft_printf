@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:59 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 21:32:28 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 23:53:14 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int     ll_len(long long n)
 	i = n;
 	len = 0;
 	/*
-	if (!ft_ispositive(n))
-		len++;
-	*/
+	   if (!ft_ispositive(n))
+	   len++;
+	   */
 	while (i >= 10 || i <= -10)
 	{
 		i = i / 10;
@@ -42,10 +42,7 @@ int		prefix_len(t_info *var, long long num)
 
 char	*itoa_helper(t_info *var, long long n, char *new, int num_len)
 {
-	long long	original;
-
-	original = n;
-	while (n)
+	while (n && var)
 	{
 		if (n >= 0)
 			new[num_len] = '0' + n % 10;
@@ -59,11 +56,19 @@ char	*itoa_helper(t_info *var, long long n, char *new, int num_len)
 		new[num_len] = '0';
 		num_len--;
 	}
-	if (original < 0)
-		new[0] = '-';
-	else if (var->fl.plus_f == 1)
-		new[0] = '+';
-	else if (var->fl.sp_f == 1)
-		new[0] = ' ';
 	return (new);
+}
+
+void	sign_help(t_info *var, long long n, char *padding, char *num)
+{
+	char *tmp;
+
+	tmp = var->fl.neg_f == 0 ? padding : num;
+	if (n < 0)
+		tmp[0] = '-';
+	else if (var->fl.plus_f == 1)
+		tmp[0] = '+';
+	else if (var->fl.sp_f == 1)
+		tmp[0] = ' ';
+
 }

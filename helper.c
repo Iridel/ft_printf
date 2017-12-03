@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:08:20 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 22:08:31 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 23:45:25 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*create_num_padding(t_info *var)
 
 	len = var->width > var->num_len ? var->width - var->num_len : 0 ;
 	new = ft_strnew(len);
-	if (var->fl.neg_f == 0 && var->fl.pre_f == 1 && var->fl.zero_f == 1)
+	if (var->fl.neg_f == 0 && var->fl.pre_f == 0 && var->fl.zero_f == 1)
 		ft_memset(new, '0', len);
 	else
 		ft_memset(new, ' ', len);
