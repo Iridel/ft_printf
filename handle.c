@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 19:11:17 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 17:26:33 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 17:32:25 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,31 @@
 
 int		handle_c(va_list ap)
 {
-	char	*c;
+	char	*str;
+	int		arg;
+	char	*padding;
 
-	c = va_arg(ap, int);
-	ft_putstr((char *)c);
-	return (1);
+	arg = va_arg(ap, int);
+	str = ft_strnew(1);
+	str[0] = (char)arg;
+	padding = create_padding(var, str);
+	if (var->fl.neg_f == 0)
+	{
+		ft_putstr(padding);
+		ft_putstr(str);
+		if (ft_strequ(arg, "") == 0)
+			ft_putchar('\0');
+	}
+	else
+	{
+		ft_putstr(str);
+		if (ft_strequ(arg, "") == 0)
+			ft_putchar('\0');
+		ft_putstr(padding);
+	}
+	free(padding);
+	free(str);
+	return (var->total_len);
 }
 
 int		handle_s(t_info *var, va_list ap)
