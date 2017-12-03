@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 01:15:01 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 22:23:13 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 00:58:29 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int		parse_precision(t_info *var, char *s)
 	if (s[i] != '.')
 		return (0);
 	var->fl.pre_f = 1;
+	while (s[i] != '\0' && ft_isdigit(s[i]) == 0)
+		i++;
 	while (s[i] != '\0' && ft_isdigit(s[i]) == 1)
 	{
 		var->pre = var->pre * 10 + s[i] - '0';
