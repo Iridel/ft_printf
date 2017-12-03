@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 19:11:17 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/01 01:21:18 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 17:26:33 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int		handle_c(va_list ap)
 {
-	int		c;
+	char	*c;
 
 	c = va_arg(ap, int);
-	ft_putchar((char)c);
+	ft_putstr((char *)c);
 	return (1);
 }
 
