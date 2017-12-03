@@ -6,9 +6,11 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 02:30:12 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 03:30:24 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 03:31:35 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 #include "ft_printf.h"
 
@@ -20,6 +22,9 @@ int		handle_s_indirect(t_info *var, ...)
 	return (handle_s(var, ap));
 }
 
+/*
+** stdlib.h needed for wint_t type
+*/
 int		handle_lc(t_info *var, va_list ap)
 {
 	char		u8[4];
