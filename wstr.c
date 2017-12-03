@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 01:43:05 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 03:16:07 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 03:48:47 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ char	*convert_wstr(wchar_t *wstr)
 	i = 0;
 	u8 = ft_strnew(len);
 	while (*wstr != '\0')
-	{
 		i += convert_wchar(u8 + i, *wstr++);
-	}
 	return (u8);
 }
