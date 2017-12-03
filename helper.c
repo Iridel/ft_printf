@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:08:20 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 23:45:25 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 01:21:55 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,18 @@ char	*create_str(t_info *var, char *str)
 	char	*new;
 	int		len;
 
-	len = var->fl.pre_f ? MIN(ft_strlen(str), var->pre) : ft_strlen(str);
-	new = ft_strnew(len);
-	new = ft_strncpy(new, str, len);
-	var->str_len = len;
+	if (str == NULL)
+	{
+		var->str_len = 6;
+		return (ft_strdup("(null)"));
+	}
+	else
+	{
+		len = var->fl.pre_f ? MIN(ft_strlen(str), var->pre) : ft_strlen(str);
+		new = ft_strnew(len);
+		new = ft_strncpy(new, str, len);
+		var->str_len = len;
+	}
 	return (new);
 }
 
