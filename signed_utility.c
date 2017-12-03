@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:59 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 23:53:14 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 00:03:35 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ int     ll_len(long long n)
 
 	i = n;
 	len = 0;
-	/*
-	   if (!ft_ispositive(n))
-	   len++;
-	   */
 	while (i >= 10 || i <= -10)
 	{
 		i = i / 10;
@@ -63,7 +59,7 @@ void	sign_help(t_info *var, long long n, char *padding, char *num)
 {
 	char *tmp;
 
-	tmp = var->fl.neg_f == 0 ? padding : num;
+	tmp = var->fl.neg_f == 0 && ft_strlen(padding) > 0 ? padding : num;
 	if (n < 0)
 		tmp[0] = '-';
 	else if (var->fl.plus_f == 1)
