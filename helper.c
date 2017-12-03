@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:08:20 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 19:27:19 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 22:08:31 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*create_unsigned(t_info *var, unsigned long long num)
 {
 	char	*new;
 
-	var->num_len = var->fl.pre_f == 1 && var->pre == 0 && num == 0 ? 0 : ll_u_len(num);
+	var->num_len = var->fl.pre_f == 1 && var->pre == 0 && num == 0 ? 0 : ll_u_len(var, num);
 	var->num_len = MAX(var->num_len, var->pre) + u_prefix_len(var, num);
 	new = ft_strnew(var->num_len);
 	new = itoa_u_helper(var, num, new, var->num_len - 1);

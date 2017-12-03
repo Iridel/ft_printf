@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 12:05:27 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 21:05:39 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 22:08:53 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ char	*itoa_helper(t_info *var, long long n, char *new_s, int num_len);
 /*
 ** unsigned_utility.c
 */
-int		ll_u_len(unsigned long long n);
+int		ll_u_len(t_info *var, unsigned long long n);
 int		u_prefix_len(t_info *var, unsigned long long num);
 char	*itoa_u_helper(t_info *var, unsigned long long n, char *n_s, int n_len);
 #endif

@@ -6,32 +6,32 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 22:50:44 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 01:26:43 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 22:14:39 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ll_u_len(unsigned long long n)
+int     ll_u_len(t_info *var, unsigned long long n)
 {
     unsigned long long  i;
     int                 len;
 
     i = n;
     len = 0;
-    while (i >= 10)
+    while (i >= (unsigned long long)var->base)
     {
-        i = i / 10;
+        i = i / (unsigned long long)var->base;
         len++;
     }
-    if (n == 0 || i < 9)
+    if (n == 0 || i < (unsigned long long)var->base - 1)
         len++;
     return (len);
 }
 
 int     u_prefix_len(t_info *var, unsigned long long num)
 {
-    if ((var->fl.pound_f == 0 || num == 0) && var->fl.plus_f == 1)
+    if ((var->fl.pound_f == 0 || num == 0) && var->fl.p_prefix_f == 0)
         return (0);
     if (var->base == 8)
         return (1);
