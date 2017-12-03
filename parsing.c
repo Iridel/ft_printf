@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 01:15:01 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 20:59:30 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 21:50:50 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ int		parse_type(t_info *var, char *s)
 		s[0] == 'x' || s[0] == 'X' ? var->base = 16 : 0;
 		s[0] == 'o' || s[0] == 'O' ? var->base = 8 : 0;
 		s[0] == 'p' ? var->fl.p_prefix_f = 1 : 0;
+		s[0] == 'D' ? var->length = l : 0;
 	}
 	else
 		return (0);
