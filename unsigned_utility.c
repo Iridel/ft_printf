@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 22:50:44 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 23:33:04 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 01:13:42 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,11 @@ int     u_prefix_len(t_info *var, unsigned long long num)
 
 char    *itoa_u_helper(t_info *var, unsigned long long n, char *new, int num_len)
 {
-	const char	*hex_lower = "0123456789abcdef";
-	const char	*hex_upper = "0123456789ABCDEF";	
-    
+	const char			*hex_lower = "0123456789abcdef";
+	const char			*hex_upper = "0123456789ABCDEF";	
+  	unsigned long long	o; 
+
+	o = n;
 	while (n)
     {
 		if (var->fl.upper_f == 1)
@@ -59,7 +61,7 @@ char    *itoa_u_helper(t_info *var, unsigned long long n, char *new, int num_len
         new[num_len] = '0';
         num_len--;
     }
-	if (var->fl.p_prefix_f == 0 && (n == 0 || var->fl.pound_f == 0))
+	if (var->fl.p_prefix_f == 0 && (o == 0 || var->fl.pound_f == 0))
 		return (new);
 	if (var->base == 8 || var->base == 16)
 		new[0] = '0';
