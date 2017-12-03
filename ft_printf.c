@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 11:59:00 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 17:44:25 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 20:03:39 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,23 @@ int     print(t_info *var, char *s)
     return (i);
 }  
 
-void	route(t_info *var, va_list ap)
+int		route(t_info *var, va_list ap)
 {
+	/*
 	var->type == 'c' ? handle_c(var, ap) : 0;
 	var->type == 's' ? handle_s(var, ap) : 0;
 	var->type == 'd' ? handle_d_i(var, ap) : 0;
 	var->type == 'u' ? handle_u_x_o_p(var, ap) : 0;
+	*/
+	if (var->type == 'c')
+		return (handle_c(var, ap));
+	if (var->type == 's')
+		return (handle_s(var, ap));
+	if (var->type == 'd')
+		return (handle_d_i(var, ap));
+	if (var->type == 'u')
+		return (handle_u_x_o_p(var, ap));
+	return (0);
 }
 
 int		ft_printf(char *statement, ...)
@@ -56,19 +67,23 @@ int		ft_printf(char *statement, ...)
 	int		total;
 	int		offset;
 
+	total = 0;
 	var = (t_info *)ft_memalloc(sizeof(t_info));
 	va_start(ap, statement);
 	while (*statement)
 	{
 		offset = print(var, statement);
+		total += offset;
 		statement += offset;
+		if (*statement == '\0')
+			break ;
 		offset = parse(var, statement);
 		statement += offset;
-		route(var, ap);
+		total += route(var, ap);
 		ft_bzero(var, sizeof(t_info));
 	}
 	va_end(ap);
-	total = var->total_len;
+	//total = var->total_len;
 	free(var);
 	return(total);
 }

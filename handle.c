@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 19:11:17 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 17:35:14 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 19:56:58 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,20 @@ int		handle_c(t_info *var, va_list ap)
 	arg = va_arg(ap, int);
 	str = ft_strnew(1);
 	str[0] = (char)arg;
+	//var->total_len++;
+	var->str_len = 1;
 	padding = create_padding(var, str);
 	if (var->fl.neg_f == 0)
 	{
 		ft_putstr(padding);
 		ft_putstr(str);
-		if (ft_strequ(str, "") == 0)
+		if (str[0] == '\0')
 			ft_putchar('\0');
 	}
 	else
 	{
 		ft_putstr(str);
-		if (ft_strequ(str, "") == 0)
+		if (str[0] == '\0')
 			ft_putchar('\0');
 		ft_putstr(padding);
 	}
@@ -54,13 +56,13 @@ int		handle_s(t_info *var, va_list ap)
 	{
 		ft_putstr(padding);
 		ft_putstr(str);
-		if (ft_strequ(arg, "") == 0)
+		if (str[0] == '\0')
 			ft_putchar('\0');
 	}
 	else
 	{
 		ft_putstr(str);
-		if (ft_strequ(arg, "") == 0)
+		if (str[0] == '\0')
 			ft_putchar('\0');
 		ft_putstr(padding);
 	}
@@ -116,5 +118,3 @@ int		handle_u_x_o_p(t_info *var, va_list ap)
 	free(padding);
 	return (var->total_len);
 }
-
-//one more left here
