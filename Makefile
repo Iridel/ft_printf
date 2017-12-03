@@ -6,11 +6,11 @@
 #    By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/18 01:50:34 by dhill             #+#    #+#              #
-#    Updated: 2017/12/02 17:17:22 by dhill            ###   ########.fr        #
+#    Updated: 2017/12/02 17:22:32 by dhill            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 	printf_libft.a
+NAME = 	libftprintf.a
 
 SRCS = $(wildcard *.c)
 
