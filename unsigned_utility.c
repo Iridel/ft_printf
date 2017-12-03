@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 22:50:44 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/02 22:14:39 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/02 23:19:36 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int     ll_u_len(t_info *var, unsigned long long n)
 
 int     u_prefix_len(t_info *var, unsigned long long num)
 {
-    if ((var->fl.pound_f == 0 || num == 0) && var->fl.p_prefix_f == 0)
-        return (0);
     if (var->base == 8)
         return (1);
+    if ((var->fl.pound_f == 0 || num == 0) && var->fl.p_prefix_f == 0)
+        return (0);
     if (var->base == 16)
         return (2);
     return (0);
