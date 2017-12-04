@@ -6,29 +6,29 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 02:30:12 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 03:59:14 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/03 03:09:36 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <wctype.h>
-
 #include "ft_printf.h"
+
+int		handle_s_indirect(t_info *var, ...)
+{
+	va_list	ap;
+
+	va_start(ap, var);
+	return (handle_s(var, ap));
+}
 
 int		handle_lc(t_info *var, va_list ap)
 {
-	char		u8[4];
+	char		u8[5];
 	wchar_t		wc;
-	int			len;
 
-	(void)var;
-	ft_bzero(u8, 4);
-	wc = va_arg(ap, wint_t);
-	len = convert_wchar(u8, wc);
-	write(1, u8, 1);
-	//write(1, u8 + 1, 1);
-	//write(1, u8 + 2, 1);
-	//write(1, u8 + 3, 1);
-	return (len);
+	u8[4] = '\0';
+	wc = va_arg(ap, wchar_t);
+	convert_wchar(u8, wc);
+	return (handle_s_indirect(var, u8));
 }
 
 int		check_type(char c)
