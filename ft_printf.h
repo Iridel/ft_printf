@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 12:05:27 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/06 13:30:07 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/06 14:37:46 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,6 @@ int				handle_d_i(t_info *var, va_list ap);
 int				handle_u_x_o_p(t_info *var, va_list ap);
 
 /*
-** handle_cont.c
-*/
-int				handle_s_indirect(t_info *var, ...);
-int				handle_lc(t_info *var, va_list ap);
-int				check_type(char c);
-int				check_flag(char c);
-
-/*
 ** parsing.c
 */
 int				parse_flags(t_info *var, char *s);
@@ -94,6 +86,12 @@ char			*create_padding(t_info *var, char *str);
 char			*create_signed(t_info *var, long long num);
 char			*create_unsigned(t_info *var, unsigned long long num);
 char			*create_num_padding(t_info *var);
+
+/*
+** help_cont.c
+*/
+int				check_type(char c);
+int				check_flag(char c);
 
 /*
 ** signed_utility.c
