@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 19:11:17 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 02:54:51 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/06 14:03:13 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ int			handle_s(t_info *var, va_list ap)
 	char	*arg;
 	char	*padding;
 
-	arg = var->length == l ? convert_wstr(va_arg(ap, wchar_t *)) :
-							va_arg(ap, char *);
+	arg = va_arg(ap, char *);
 	str = create_str(var, arg);
 	padding = create_padding(var, str);
 	if (var->fl.neg_f == 0)

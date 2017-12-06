@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 01:32:45 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/04 15:53:21 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/06 14:02:45 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		parse(t_info *var, char *s)
 	return (count);
 }
 
-int		print(t_info *var, char *s)
+int		print(char *s)
 {
 	int i;
 
@@ -37,7 +37,6 @@ int		print(t_info *var, char *s)
 		ft_putchar(s[i]);
 		i++;
 	}
-	var->total_len += i;
 	return (i);
 }
 
@@ -66,7 +65,7 @@ int		ft_printf(char *statement, ...)
 	va_start(ap, statement);
 	while (*statement)
 	{
-		offset = print(var, statement);
+		offset = print(statement);
 		total += offset;
 		statement += offset;
 		if (*statement == '\0')

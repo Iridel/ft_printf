@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 12:05:27 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 03:10:01 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/06 13:30:07 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef enum	e_length
 	l,
 	j,
 	t,
-	z
+	z,
 }				t_length;
 
 typedef struct	s_flags
@@ -111,11 +111,4 @@ int				ll_u_len(t_info *var, unsigned long long n);
 int				u_prefix_len(t_info *var, unsigned long long num);
 char			*itoa_u_helper(t_info *var, unsigned long long n,
 								char *n_s, int n_len);
-/*
-** wstr.c
-*/
-int				wchar_size(wchar_t wc);
-int				convert_wchar(char *u8, wchar_t wc);
-int				wstr_len(wchar_t *wstr);
-char			*convert_wstr(wchar_t *wstr);
 #endif

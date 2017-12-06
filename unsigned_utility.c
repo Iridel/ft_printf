@@ -6,7 +6,7 @@
 /*   By: dhill <dhill@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 22:50:44 by dhill             #+#    #+#             */
-/*   Updated: 2017/12/03 03:03:44 by dhill            ###   ########.fr       */
+/*   Updated: 2017/12/06 13:41:21 by dhill            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ char	*itoa_u_helper(t_info *var, unsigned long long n, char *new,
 	}
 	if (var->fl.p_prefix_f == 0 && (o == 0 || var->fl.pound_f == 0))
 		return (new);
-	if (var->base == 8 || var->base == 16)
+	if ((var->base == 8 || var->base == 16) && var->fl.pound_f == 1)
 		new[0] = '0';
-	if (var->base == 16)
+	if (var->base == 16 && var->fl.pound_f == 1)
 		new[1] = var->fl.upper_f == 1 ? 'X' : 'x';
 	return (new);
 }
